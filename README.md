@@ -9,7 +9,7 @@
 
 ## 🚀 Live Demo
 
-🔗 https://your-app-name.onrender.com
+🔗 https://flight-price-prediction-5r2n.onrender.com/
 
 ---
 
