@@ -1,0 +1,8 @@
+pandas==2.2.2
+numpy==1.26.4
+scikit-learn==1.6.1
+feature-engine==1.7.0
+flask==3.0.3
+flask-wtf==1.2.1
+gunicorn==22.0.0
+joblib

@@ -1,0 +1,124 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<section class="hero predict-hero">
+    <div class="plane-line">✈</div>
+
+    <div class="hero-content">
+        <p class="eyebrow">Flight Price Predictor</p>
+        <h1>Find your expected flight price</h1>
+        <p class="hero-subtitle">
+            Enter journey details and get an estimated ticket price.
+        </p>
+
+        <div class="feature-tabs">
+            <div class="feature-card">✈️<span>Flights</span></div>
+            <div class="feature-card active">📊<span>Predictor</span></div>
+            <div class="feature-card">🤖<span>Bot</span></div>
+            <div class="feature-card">🏨<span>Hotels</span></div>
+        </div>
+    </div>
+</section>
+
+<section class="booking-section">
+    <div class="booking-card">
+        <div class="booking-header">
+            <div>
+                <span class="pill active">Round-trip</span>
+                <span class="pill">One-way</span>
+            </div>
+            <p>Fill all fields carefully</p>
+        </div>
+
+        <form method="POST" action="" class="booking-form">
+            {{ form.hidden_tag() }}
+
+            <div class="form-grid">
+                <div class="form-group {% if form.airline.errors %}has-error{% endif %}">
+                    <label for="airline">Airline</label>
+                    {{ form.airline(id="airline", class="form-control") }}
+                    {% for error in form.airline.errors %}
+                    <div class="error-message">{{ error }}</div>
+                    {% endfor %}
+                </div>
+
+                <div class="form-group {% if form.date_of_journey.errors %}has-error{% endif %}">
+                    <label for="date_of_journey">Date of Journey</label>
+                    {{ form.date_of_journey(id="date_of_journey", class="form-control", type="date") }}
+                    {% for error in form.date_of_journey.errors %}
+                    <div class="error-message">{{ error }}</div>
+                    {% endfor %}
+                </div>
+
+                <div class="form-group {% if form.source.errors %}has-error{% endif %}">
+                    <label for="source">Source</label>
+                    {{ form.source(id="source", class="form-control") }}
+                    {% for error in form.source.errors %}
+                    <div class="error-message">{{ error }}</div>
+                    {% endfor %}
+                </div>
+
+                <div class="form-group {% if form.destination.errors %}has-error{% endif %}">
+                    <label for="destination">Destination</label>
+                    {{ form.destination(id="destination", class="form-control") }}
+                    {% for error in form.destination.errors %}
+                    <div class="error-message">{{ error }}</div>
+                    {% endfor %}
+                </div>
+
+                <div class="form-group {% if form.dep_time.errors %}has-error{% endif %}">
+                    <label for="dep_time">Departure Time</label>
+                    {{ form.dep_time(id="dep_time", class="form-control", type="time") }}
+                    {% for error in form.dep_time.errors %}
+                    <div class="error-message">{{ error }}</div>
+                    {% endfor %}
+                </div>
+
+                <div class="form-group {% if form.arrival_time.errors %}has-error{% endif %}">
+                    <label for="arrival_time">Arrival Time</label>
+                    {{ form.arrival_time(id="arrival_time", class="form-control", type="time") }}
+                    {% for error in form.arrival_time.errors %}
+                    <div class="error-message">{{ error }}</div>
+                    {% endfor %}
+                </div>
+
+                <div class="form-group {% if form.duration.errors %}has-error{% endif %}">
+                    <label for="duration">Duration</label>
+                    {{ form.duration(id="duration", class="form-control", type="number", min="1", placeholder="e.g. 150") }}
+                    {% for error in form.duration.errors %}
+                    <div class="error-message">{{ error }}</div>
+                    {% endfor %}
+                </div>
+
+                <div class="form-group {% if form.total_stops.errors %}has-error{% endif %}">
+                    <label for="total_stops">Total Stops</label>
+                    {{ form.total_stops(id="total_stops", class="form-control", type="number", min="0", placeholder="0, 1, 2...") }}
+                    {% for error in form.total_stops.errors %}
+                    <div class="error-message">{{ error }}</div>
+                    {% endfor %}
+                </div>
+
+                <div class="form-group full {% if form.additional_info.errors %}has-error{% endif %}">
+                    <label for="additional_info">Additional Info</label>
+                    {{ form.additional_info(id="additional_info", class="form-control") }}
+                    {% for error in form.additional_info.errors %}
+                    <div class="error-message">{{ error }}</div>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <button type="submit" class="submit-btn">🔍 Predict Price</button>
+        </form>
+
+        {% if output %}
+        <div class="result-box {% if 'error' in output.lower() or 'failed' in output.lower() %}error{% else %}success{% endif %}">
+            {{ output }}
+        </div>
+        {% endif %}
+
+        <div class="home-link">
+            <a href="{{ url_for('home') }}">← Back to Home</a>
+        </div>
+    </div>
+</section>
+{% endblock content %}

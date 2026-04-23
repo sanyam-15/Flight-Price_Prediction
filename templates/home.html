@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<section class="hero">
+    <div class="plane-line">✈</div>
+
+    <div class="hero-content">
+        <p class="eyebrow">Flight Price Predictor</p>
+        <h1>Know when to book flights,<br>without overpaying</h1>
+        <p class="hero-subtitle">
+            Predict estimated flight prices instantly using travel details.
+        </p>
+
+        <div class="feature-tabs">
+            <div class="feature-card">✈️<span>Flights</span></div>
+            <div class="feature-card active">📊<span>Flight Price Predictor</span></div>
+            <div class="feature-card">🤖<span>Telegram Bot</span></div>
+            <div class="feature-card">🏨<span>Hotels</span></div>
+        </div>
+
+        <a href="{{ url_for('predict') }}" class="hero-btn">Start Prediction</a>
+    </div>
+</section>
+{% endblock content %}
