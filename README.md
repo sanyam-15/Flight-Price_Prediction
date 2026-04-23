@@ -87,25 +87,13 @@ Prediction Output
 Rendered UI Response
 ```
 
----
+## 🖼️ UI Preview  
 
-## 🖼️ UI Preview
+### 🔹 Home Page  
+![Home UI](static/images/image1.png)
 
-```
-/static/images/image1.png
-/static/images/image2.png
-```
-
-Then use:
-
-```md
-![UI Screenshot](static/images/image1.png)
-```
-```md
-![UI Screenshot](static/images/image2.png)
-```
-
----
+### 🔹 Prediction Page  
+![Prediction UI](static/images/image2.png)
 
 ## 📂 Project Structure
 
