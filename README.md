@@ -7,9 +7,7 @@
 
 ---
 
-## 🚀 Live Demo
 
-🔗 https://flight-price-prediction-5r2n.onrender.com/
 
 ---
 
